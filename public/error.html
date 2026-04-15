@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Error de Pago — Cardio Costa Rica</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Nunito:wght@700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --accent: #E87E7E;
+      --accent-hover: #D96A6A;
+      --text: #2D3748;
+      --text-muted: #718096;
+      --bg: #FFFFFF;
+      --bg-alt: #F7F9FB;
+      --border: #E2E8F0;
+      --primary: #7FB3D3;
+      --primary-dark: #5A9ABF;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg-alt);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      padding: 48px;
+      max-width: 560px;
+      width: 100%;
+      text-align: center;
+    }
+    .icon {
+      width: 64px;
+      height: 64px;
+      border: 2px solid var(--accent);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+    }
+    .icon svg { color: var(--accent); }
+    h1 {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 2rem;
+      margin-bottom: 16px;
+    }
+    .message {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 32px;
+    }
+    .actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .btn {
+      display: inline-block;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      padding: 14px 32px;
+      border: 1px solid transparent;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 200ms;
+    }
+    .btn--primary { background: var(--accent); color: white; border-color: var(--accent); }
+    .btn--outline { background: transparent; color: var(--text); border-color: var(--border); }
+    .btn:hover {
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transform: translateY(-1px);
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="icon">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </div>
+    <h1>ERROR DE PAGO</h1>
+    <p class="message">
+      El pago no pudo ser procesado. No se realizó ningún cobro a tu tarjeta. Puedes intentar de nuevo o elegir SINPE Móvil como método de pago alternativo.
+    </p>
+    <div class="actions">
+      <a href="/#pedido" class="btn btn--primary">INTENTAR DE NUEVO</a>
+      <a href="/" class="btn btn--outline">VOLVER AL INICIO</a>
+    </div>
+  </div>
+</body>
+</html>

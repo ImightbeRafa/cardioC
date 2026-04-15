@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pago Exitoso — Cardio Costa Rica</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Nunito:wght@700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary: #7FB3D3;
+      --primary-dark: #5A9ABF;
+      --accent: #E87E7E;
+      --text: #2D3748;
+      --text-muted: #718096;
+      --bg: #FFFFFF;
+      --bg-alt: #F7F9FB;
+      --border: #E2E8F0;
+      --success: #68D391;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg-alt);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      padding: 48px;
+      max-width: 560px;
+      width: 100%;
+      text-align: center;
+    }
+    .icon {
+      width: 64px;
+      height: 64px;
+      border: 2px solid var(--success);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+    }
+    .icon svg { color: var(--success); }
+    h1 {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 2rem;
+      margin-bottom: 8px;
+    }
+    .order-id {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1rem;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+    .message {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 32px;
+    }
+    .btn {
+      display: inline-block;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      padding: 14px 36px;
+      border: 1px solid transparent;
+      border-radius: 8px;
+      background: var(--primary-dark);
+      color: white;
+      text-decoration: none;
+      transition: all 200ms;
+    }
+    .btn:hover {
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transform: translateY(-1px);
+    }
+    .loading { display: block; margin-bottom: 24px; color: var(--text-muted); }
+    .hidden { display: none; }
+  </style>
+
+  <!-- Meta Pixel -->
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+    (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    // fbq('init', 'YOUR_PIXEL_ID');
+    // fbq('track', 'PageView');
+  </script>
+</head>
+<body>
+  <div class="card">
+    <div class="icon">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>
+    </div>
+    <h1>¡PAGO EXITOSO!</h1>
+    <p class="order-id" id="orderId">Procesando...</p>
+    <p class="loading" id="loadingMsg">Confirmando tu pedido...</p>
+    <p class="message hidden" id="successMsg">
+      Te enviamos un correo con la confirmación y los detalles de envío. Tu tensiómetro llegará en 2-5 días hábiles.
+    </p>
+    <a href="/" class="btn hidden" id="homeBtn">VOLVER AL INICIO</a>
+  </div>
+
+  <script>
+    (async function() {
+      const params = new URLSearchParams(window.location.search);
+      const code = params.get('code');
+      const returnData = params.get('returnData');
+      const transactionId = params.get('tilopay-transaction') || params.get('transactionId') || '';
+      const orderId = params.get('orderId') || '';
+
+      const orderIdEl = document.getElementById('orderId');
+      const loadingMsg = document.getElementById('loadingMsg');
+      const successMsg = document.getElementById('successMsg');
+      const homeBtn = document.getElementById('homeBtn');
+
+      if (orderId) {
+        orderIdEl.textContent = `Orden ${orderId}`;
+      }
+
+      if (code !== '1') {
+        orderIdEl.textContent = 'Pago no completado';
+        loadingMsg.textContent = 'El pago no fue procesado. Puedes intentar de nuevo.';
+        homeBtn.classList.remove('hidden');
+        return;
+      }
+
+      // Deduplicate Purchase pixel
+      const dedupKey = `purchase_${orderId}_${transactionId}`;
+      if (!sessionStorage.getItem(dedupKey)) {
+        sessionStorage.setItem(dedupKey, '1');
+
+        // Get order data from sessionStorage
+        let orderData = {};
+        try {
+          orderData = JSON.parse(sessionStorage.getItem('pendingOrder') || '{}');
+          sessionStorage.removeItem('pendingOrder');
+        } catch (e) {}
+
+        // Browser-side Purchase pixel
+        if (typeof fbq !== 'undefined') {
+          fbq('track', 'Purchase', {
+            content_name: orderData.product?.name || 'Tensiómetro Digital',
+            value: orderData.total || 0,
+            currency: 'CRC',
+            order_id: orderId,
+          }, { eventID: `purchase_${orderId}_${transactionId}` });
+        }
+      }
+
+      // Call confirm endpoint
+      try {
+        const res = await fetch('/api/tilopay/confirm', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ returnData, code, transactionId }),
+        });
+
+        const data = await res.json();
+
+        if (data.success) {
+          loadingMsg.classList.add('hidden');
+          successMsg.classList.remove('hidden');
+          homeBtn.classList.remove('hidden');
+          if (data.orderId) {
+            orderIdEl.textContent = `Orden ${data.orderId}`;
+          }
+        } else {
+          loadingMsg.textContent = 'Hubo un problema confirmando tu pedido. Contactanos por WhatsApp.';
+          homeBtn.classList.remove('hidden');
+        }
+      } catch (err) {
+        console.error('Confirm error:', err);
+        loadingMsg.textContent = 'Error de conexión. Tu pago fue procesado — te contactaremos por correo.';
+        homeBtn.classList.remove('hidden');
+      }
+    })();
+  </script>
+</body>
+</html>

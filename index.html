@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cardio Costa Rica — Monitor Digital de Presión Arterial</title>
+  <meta name="description" content="Controla tu presión arterial desde casa. Monitor digital automático de muñeca. Medición precisa en segundos. Envíos a todo Costa Rica. ₡14.900." />
+  <meta property="og:title" content="Cardio Costa Rica — Monitor Digital de Presión Arterial" />
+  <meta property="og:description" content="Controla tu presión arterial desde casa. Medición precisa en segundos. ₡14.900 con envío a todo Costa Rica." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://cardiocostarica.cr" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Nunito:wght@700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- Meta Pixel -->
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+    (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    // Replace YOUR_PIXEL_ID with your actual Meta Pixel ID
+    // fbq('init', 'YOUR_PIXEL_ID');
+    // fbq('track', 'PageView');
+  </script>
+
+  <link rel="stylesheet" href="/src/styles/main.css" />
+</head>
+<body>
+
+  <!-- ===== NAVIGATION ===== -->
+  <header class="nav" id="nav">
+    <div class="container nav__inner">
+      <a href="#" class="nav__logo">Cardio <span class="nav__logo-accent">Costa Rica</span></a>
+      <nav class="nav__links" id="navLinks">
+        <a href="#producto" class="nav__link">Producto</a>
+        <a href="#hipertension" class="nav__link">Hipertensión</a>
+        <a href="#como-funciona" class="nav__link">Cómo Funciona</a>
+        <a href="#pedido" class="nav__link">Contacto</a>
+      </nav>
+      <a href="#pedido" class="btn btn--sm btn--primary nav__cta">COMPRAR</a>
+      <button class="nav__hamburger" id="hamburger" aria-label="Menú de navegación">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Menu Overlay -->
+  <div class="mobile-menu" id="mobileMenu">
+    <nav class="mobile-menu__nav">
+      <a href="#producto" class="mobile-menu__link">Producto</a>
+      <a href="#hipertension" class="mobile-menu__link">Hipertensión</a>
+      <a href="#como-funciona" class="mobile-menu__link">Cómo Funciona</a>
+      <a href="#pedido" class="mobile-menu__link">Comprar</a>
+    </nav>
+  </div>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="hero">
+    <div class="container hero__inner">
+      <div class="hero__text">
+        <div class="hero__panel">
+          <span class="eyebrow eyebrow--blue">MONITOR DIGITAL DE PRESIÓN ARTERIAL</span>
+          <h1 class="hero__headline">CONTROLA TU PRESIÓN.<br/>PROTEGE TU VIDA.</h1>
+          <p class="hero__sub">Medición precisa en segundos. Envíos en todo Costa Rica.</p>
+          <div class="hero__price">₡14.900</div>
+          <div class="hero__actions">
+            <a href="#pedido" class="btn btn--primary">COMPRAR AHORA</a>
+            <a href="#producto" class="btn btn--outline">VER DETALLES</a>
+          </div>
+        </div>
+      </div>
+      <div class="hero__image">
+        <div class="hero__image-frame">
+          <img src="/images/image1.jpg" alt="Monitor digital de presión arterial de muñeca Cardio Costa Rica" width="600" height="600" loading="eager" />
+        </div>
+      </div>
+    </div>
+    <div class="hero__scroll-hint" aria-hidden="true">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+    </div>
+  </section>
+
+  <!-- ===== STATS STRIP ===== -->
+  <section class="stats-strip">
+    <div class="container stats-strip__inner">
+      <div class="stat">
+        <span class="stat__number">53</span>
+        <span class="stat__label">NUEVOS CASOS DE HIPERTENSIÓN AL DÍA</span>
+      </div>
+      <div class="stat">
+        <span class="stat__number">30%</span>
+        <span class="stat__label">DE ADULTOS EN CR SON HIPERTENSOS</span>
+      </div>
+      <div class="stat">
+        <span class="stat__number">#1</span>
+        <span class="stat__label">FACTOR DE RIESGO CARDIOVASCULAR</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== BENEFITS ===== -->
+  <section class="benefits" id="beneficios">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow eyebrow--red">PROTEGE TU SALUD</span>
+        <h2 class="section-headline">¿POR QUÉ NECESITAS UNO?</h2>
+      </div>
+      <div class="benefits__grid">
+        <div class="card card--benefit card--span2 reveal-up">
+          <div class="card__icon">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M6 36l8-16 8 10 8-20 8 14 4-8"/><line x1="6" y1="42" x2="42" y2="42"/></svg>
+          </div>
+          <h3 class="card__title">Registro diario real</h3>
+          <p class="card__body">Mide tu presión en tu ambiente real, sin el estrés de la consulta. Evita el efecto bata blanca y obtén datos confiables todos los días.</p>
+        </div>
+        <div class="card card--benefit reveal-up">
+          <div class="card__icon">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M24 6l4 8h8l-6 6 2 8-8-4-8 4 2-8-6-6h8z"/><circle cx="24" cy="36" r="6"/></svg>
+          </div>
+          <h3 class="card__title">Detecta picos invisibles</h3>
+          <p class="card__body">Variaciones matutinas y nocturnas que el médico no ve en una sola cita. Identifica patrones ocultos.</p>
+        </div>
+        <div class="card card--benefit reveal-up">
+          <div class="card__icon">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><rect x="8" y="14" width="12" height="20" rx="2"/><path d="M24 24h16M32 18v12"/><path d="M14 20v8"/></svg>
+          </div>
+          <h3 class="card__title">Verifica tu tratamiento</h3>
+          <p class="card__body">Confirma si los medicamentos, dieta o ejercicio están funcionando. Datos reales para decisiones reales.</p>
+        </div>
+        <div class="card card--benefit card--span2 card--highlight reveal-up">
+          <div class="card__icon card__icon--white">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M24 42s-16-8-16-20a8 8 0 0116 0 8 8 0 0116 0c0 12-16 20-16 20z"/><path d="M18 8l-4-4M30 8l4-4M24 4v4"/></svg>
+          </div>
+          <h3 class="card__title">Protege a tu familia</h3>
+          <p class="card__body">Un infarto puede quitarte años con tus hijos. Controlar tu presión es un acto de amor responsable. No es solo por ti — es por quienes te aman.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PRODUCT ===== -->
+  <section class="product" id="producto">
+    <div class="container">
+      <div class="product__top">
+        <div class="product__gallery">
+          <div class="product__gallery-grid">
+            <div class="product__img product__img--main">
+              <img src="/images/image1.jpg" alt="Monitor de presión en muñeca" width="500" height="375" loading="lazy" />
+            </div>
+            <div class="product__img product__img--sm">
+              <img src="/images/image2.jpg" alt="Pantalla del monitor mostrando lectura" width="240" height="180" loading="lazy" />
+            </div>
+            <div class="product__img product__img--sm">
+              <img src="/images/image3.jpg" alt="Caja del monitor de presión" width="240" height="180" loading="lazy" />
+            </div>
+          </div>
+        </div>
+        <div class="product__info">
+          <span class="eyebrow eyebrow--blue">MONITOR DIGITAL</span>
+          <h2 class="section-headline">TENSIÓMETRO DE MUÑECA</h2>
+          <p class="product__desc">Monitor digital automático de presión arterial de muñeca. Mide sistólica, diastólica y pulso en segundos. Compacto, preciso y fácil de usar en casa.</p>
+          <div class="product__price-block">
+            <span class="product__price">₡14.900</span>
+          </div>
+          <a href="#pedido" class="btn btn--primary btn--full">AÑADIR AL CARRITO</a>
+          <p class="product__shipping">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="6" width="15" height="12" rx="1"/><path d="M16 10h4l3 3v5h-7V10z"/><circle cx="7" cy="20" r="2"/><circle cx="20" cy="20" r="2"/></svg>
+            Envío a todo Costa Rica
+          </p>
+        </div>
+      </div>
+
+      <!-- Specs Table -->
+      <div class="product__specs reveal-up">
+        <span class="eyebrow eyebrow--blue">ESPECIFICACIONES TÉCNICAS</span>
+        <table class="specs-table">
+          <tbody>
+            <tr><td class="specs-table__label">Método</td><td class="specs-table__value">Oscilométrico</td></tr>
+            <tr><td class="specs-table__label">Rango de medición</td><td class="specs-table__value">0–299 mmHg</td></tr>
+            <tr><td class="specs-table__label">Precisión</td><td class="specs-table__value">±3 mmHg</td></tr>
+            <tr><td class="specs-table__label">Memoria</td><td class="specs-table__value">60 lecturas</td></tr>
+            <tr><td class="specs-table__label">Alimentación</td><td class="specs-table__value">2× AAA</td></tr>
+            <tr><td class="specs-table__label">Pantalla</td><td class="specs-table__value">LCD digital</td></tr>
+            <tr><td class="specs-table__label">Indicador</td><td class="specs-table__value">Clasificación OMS</td></tr>
+            <tr><td class="specs-table__label">Apagado</td><td class="specs-table__value">Automático</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== HOW IT WORKS ===== -->
+  <section class="how-it-works" id="como-funciona">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow eyebrow--blue">SIMPLE Y RÁPIDO</span>
+        <h2 class="section-headline">CÓMO FUNCIONA</h2>
+      </div>
+      <div class="steps">
+        <div class="steps__connector" aria-hidden="true"></div>
+        <div class="step card reveal-up">
+          <span class="step__number">01</span>
+          <h3 class="step__title">COLOCA</h3>
+          <p class="step__desc">Ajusta el brazalete en tu muñeca izquierda, sobre la piel, al nivel del corazón.</p>
+        </div>
+        <div class="step card reveal-up">
+          <span class="step__number">02</span>
+          <h3 class="step__title">PRESIONA</h3>
+          <p class="step__desc">Un solo botón. El brazalete se infla automáticamente.</p>
+        </div>
+        <div class="step card reveal-up">
+          <span class="step__number">03</span>
+          <h3 class="step__title">ESPERA</h3>
+          <p class="step__desc">En segundos detecta las oscilaciones de tu arteria radial.</p>
+        </div>
+        <div class="step card reveal-up">
+          <span class="step__number">04</span>
+          <h3 class="step__title">LEE</h3>
+          <p class="step__desc">Sistólica, diastólica y pulso en pantalla. Listo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TESTIMONIALS ===== -->
+  <section class="testimonials" id="testimonios">
+    <div class="container">
+      <div class="testimonials__stats">
+        <div class="testimonials__stat">
+          <span class="stat__number stat__number--light">500+</span>
+          <span class="stat__label stat__label--light">UNIDADES VENDIDAS</span>
+        </div>
+        <div class="testimonials__stat-divider"></div>
+        <div class="testimonials__stat">
+          <span class="stat__number stat__number--light">4.8★</span>
+          <span class="stat__label stat__label--light">CALIFICACIÓN PROMEDIO</span>
+        </div>
+        <div class="testimonials__stat-divider"></div>
+        <div class="testimonials__stat">
+          <span class="stat__number stat__number--light">100%</span>
+          <span class="stat__label stat__label--light">ENVÍOS EXITOSOS</span>
+        </div>
+      </div>
+      <div class="testimonials__grid">
+        <div class="card card--testimonial reveal-up">
+          <span class="testimonial__quote">"</span>
+          <p class="testimonial__text">Mi mamá toma pastillas para la presión y ahora le medimos todos los días en casa. El doctor dijo que el registro le ayuda a ajustar la dosis. Muy fácil de usar.</p>
+          <div class="testimonial__divider"></div>
+          <span class="testimonial__name">MARÍA FERNANDA R.</span>
+          <span class="testimonial__location">San José, Costa Rica</span>
+        </div>
+        <div class="card card--testimonial reveal-up">
+          <span class="testimonial__quote">"</span>
+          <p class="testimonial__text">Tengo 58 años y antecedentes de hipertensión en la familia. Este aparato me da tranquilidad. Lo uso mañana y noche, llevo mi registro y se lo muestro al médico.</p>
+          <div class="testimonial__divider"></div>
+          <span class="testimonial__name">CARLOS A. MORA</span>
+          <span class="testimonial__location">Heredia, Costa Rica</span>
+        </div>
+        <div class="card card--testimonial reveal-up">
+          <span class="testimonial__quote">"</span>
+          <p class="testimonial__text">Lo compré para mi esposo diabético. El envío llegó rapidísimo. Ya no tenemos que ir a la farmacia solo a medirle la presión. Excelente inversión.</p>
+          <div class="testimonial__divider"></div>
+          <span class="testimonial__name">ANA LUCÍA V.</span>
+          <span class="testimonial__location">Cartago, Costa Rica</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== EDUCATION PREVIEW ===== -->
+  <section class="education" id="hipertension">
+    <div class="container education__inner">
+      <div class="education__visual reveal-up">
+        <div class="bp-chart">
+          <div class="bp-chart__title">RANGOS DE PRESIÓN ARTERIAL</div>
+          <div class="bp-chart__row bp-chart__row--normal">
+            <span class="bp-chart__label">Normal</span>
+            <span class="bp-chart__range">&lt; 120/80 mmHg</span>
+          </div>
+          <div class="bp-chart__row bp-chart__row--elevated">
+            <span class="bp-chart__label">Elevada</span>
+            <span class="bp-chart__range">120-129 / &lt;80 mmHg</span>
+          </div>
+          <div class="bp-chart__row bp-chart__row--stage1">
+            <span class="bp-chart__label">Hipertensión Etapa 1</span>
+            <span class="bp-chart__range">130-139 / 80-89 mmHg</span>
+          </div>
+          <div class="bp-chart__row bp-chart__row--stage2">
+            <span class="bp-chart__label">Hipertensión Etapa 2</span>
+            <span class="bp-chart__range">≥ 140/90 mmHg</span>
+          </div>
+          <div class="bp-chart__row bp-chart__row--crisis">
+            <span class="bp-chart__label">Crisis hipertensiva</span>
+            <span class="bp-chart__range">&gt; 180/120 mmHg</span>
+          </div>
+        </div>
+      </div>
+      <div class="education__content">
+        <span class="eyebrow eyebrow--red">EDUCACIÓN</span>
+        <h2 class="section-headline">¿QUÉ ES LA HIPERTENSIÓN?</h2>
+        <p class="education__text">La hipertensión arterial es la fuerza excesiva de la sangre contra las paredes de tus arterias. Se le llama "el asesino silencioso" porque generalmente no presenta síntomas hasta que causa daño grave.</p>
+        <p class="education__text">En Costa Rica, más del 30% de los adultos son hipertensos. Muchos no lo saben.</p>
+        <ul class="education__risks">
+          <li>Antecedentes familiares de presión alta</li>
+          <li>Diabetes o prediabetes</li>
+          <li>Sobrepeso u obesidad</li>
+          <li>Sedentarismo y estrés crónico</li>
+          <li>Consumo alto de sal y alcohol</li>
+          <li>Mayores de 40 años</li>
+        </ul>
+        <a href="#pedido" class="btn btn--outline">TOMA CONTROL DE TU SALUD →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section class="faq" id="faq">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow eyebrow--blue">PREGUNTAS FRECUENTES</span>
+        <h2 class="section-headline">RESOLVEMOS TUS DUDAS</h2>
+      </div>
+      <div class="faq__list">
+        <details class="faq__item">
+          <summary class="faq__question">¿Qué tan preciso es un monitor de muñeca?</summary>
+          <div class="faq__answer"><p>Los monitores de muñeca oscilométricos tienen una precisión de ±3 mmHg, similar a los de brazo. La clave está en la posición correcta: muñeca al nivel del corazón, sentado y en reposo 5 minutos antes.</p></div>
+        </details>
+        <details class="faq__item">
+          <summary class="faq__question">¿Cómo debo medir mi presión correctamente?</summary>
+          <div class="faq__answer"><p>Siéntate tranquilo 5 minutos. Coloca el brazalete en la muñeca izquierda al nivel del corazón. No hables durante la medición. Mide 2-3 veces y promedia. Hazlo a la misma hora, mañana y noche.</p></div>
+        </details>
+        <details class="faq__item">
+          <summary class="faq__question">¿Hacen envíos a todo Costa Rica?</summary>
+          <div class="faq__answer"><p>Sí, enviamos a las 7 provincias de Costa Rica mediante Correos de Costa Rica. El envío tiene un costo de ₡2.600 y normalmente tarda 2-5 días hábiles.</p></div>
+        </details>
+        <details class="faq__item">
+          <summary class="faq__question">¿Qué métodos de pago aceptan?</summary>
+          <div class="faq__answer"><p>Aceptamos tarjetas de crédito y débito (Visa, Mastercard, American Express) a través de Tilopay, y también SINPE Móvil para transferencia directa.</p></div>
+        </details>
+        <details class="faq__item">
+          <summary class="faq__question">¿Sustituye una consulta médica?</summary>
+          <div class="faq__answer"><p>No. El monitor es una herramienta de seguimiento diario. Siempre debes compartir tus registros con tu médico para ajustar tratamientos. Complementa la atención profesional, no la reemplaza.</p></div>
+        </details>
+        <details class="faq__item">
+          <summary class="faq__question">¿Qué incluye la compra?</summary>
+          <div class="faq__answer"><p>Incluye el monitor digital de muñeca, el brazalete, manual de instrucciones en español y la caja original. Las baterías AAA no están incluidas.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ORDER FORM ===== -->
+  <section class="order" id="pedido">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow eyebrow--red">LISTO PARA TOMAR CONTROL</span>
+        <h2 class="section-headline">REALIZA TU PEDIDO</h2>
+      </div>
+      <div class="order__layout">
+        <!-- Left Column: Product + Summary -->
+        <div class="order__left">
+          <div class="order__product-card">
+            <div class="order__product-info">
+              <img src="/images/image1.jpg" alt="Tensiómetro de muñeca" class="order__product-img" width="80" height="80" loading="lazy" />
+              <div>
+                <h3 class="order__product-name">Tensiómetro Digital de Muñeca</h3>
+                <span class="order__product-price">₡14.900</span>
+              </div>
+            </div>
+            <div class="quantity-control">
+              <button class="qty-btn qty-btn--minus" aria-label="Reducir cantidad" data-action="decrease">−</button>
+              <span class="qty-value" id="qtyValue">1</span>
+              <button class="qty-btn qty-btn--plus" aria-label="Aumentar cantidad" data-action="increase">+</button>
+            </div>
+          </div>
+          <div class="order__summary">
+            <div class="summary-line">
+              <span>Subtotal</span>
+              <span class="summary-value" id="subtotal">₡14.900</span>
+            </div>
+            <div class="summary-line">
+              <span>Envío</span>
+              <span class="summary-value" id="shipping">₡2.600</span>
+            </div>
+            <div class="summary-divider"></div>
+            <div class="summary-line summary-total">
+              <span>Total</span>
+              <span class="summary-value total-value" id="totalDisplay">₡17.500</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Form -->
+        <div class="order__right">
+          <form id="orderForm" novalidate>
+            <!-- Personal Info -->
+            <div class="form-section">
+              <span class="form-section-label">DATOS PERSONALES</span>
+              <div class="form-row form-row--2col">
+                <div class="form-group">
+                  <label for="nombre">Nombre completo</label>
+                  <input type="text" id="nombre" name="nombre" required aria-required="true" autocomplete="name" />
+                  <span class="error-message" aria-live="polite"></span>
+                </div>
+                <div class="form-group">
+                  <label for="telefono">Teléfono</label>
+                  <input type="tel" id="telefono" name="telefono" placeholder="8888-8888" required aria-required="true" autocomplete="tel" />
+                  <span class="error-message" aria-live="polite"></span>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="email">Correo electrónico</label>
+                <input type="email" id="email" name="email" required aria-required="true" autocomplete="email" />
+                <span class="error-message" aria-live="polite"></span>
+              </div>
+            </div>
+
+            <!-- Shipping -->
+            <div class="form-section">
+              <span class="form-section-label">DIRECCIÓN DE ENVÍO</span>
+              <div class="form-row form-row--3col">
+                <div class="form-group">
+                  <label for="provincia">Provincia</label>
+                  <select id="provincia" name="provincia" required aria-required="true">
+                    <option value="">Seleccioná</option>
+                    <option value="San José">San José</option>
+                    <option value="Alajuela">Alajuela</option>
+                    <option value="Cartago">Cartago</option>
+                    <option value="Heredia">Heredia</option>
+                    <option value="Guanacaste">Guanacaste</option>
+                    <option value="Puntarenas">Puntarenas</option>
+                    <option value="Limón">Limón</option>
+                  </select>
+                  <span class="error-message" aria-live="polite"></span>
+                </div>
+                <div class="form-group">
+                  <label for="canton">Cantón</label>
+                  <input type="text" id="canton" name="canton" />
+                </div>
+                <div class="form-group">
+                  <label for="distrito">Distrito</label>
+                  <input type="text" id="distrito" name="distrito" />
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="direccion">Dirección completa</label>
+                <textarea id="direccion" name="direccion" rows="3" required aria-required="true" placeholder="200m norte de la iglesia, casa blanca con portón negro"></textarea>
+                <span class="error-message" aria-live="polite"></span>
+              </div>
+            </div>
+
+            <!-- Payment -->
+            <div class="form-section">
+              <span class="form-section-label">PAGO</span>
+              <div class="form-group">
+                <label for="metodoPago">Método de pago</label>
+                <select id="metodoPago" name="metodoPago" required aria-required="true">
+                  <option value="">Seleccioná</option>
+                  <option value="tilopay">Tarjeta (Tilopay)</option>
+                  <option value="sinpe">SINPE Móvil</option>
+                </select>
+                <span class="error-message" aria-live="polite"></span>
+                <p class="sinpe-hint" id="sinpeHint" hidden>Te enviaremos los datos de SINPE por correo para completar la transferencia.</p>
+              </div>
+              <div class="form-group">
+                <label for="comentarios">Comentarios <span class="label-optional">(opcional)</span></label>
+                <textarea id="comentarios" name="comentarios" rows="2" placeholder="Instrucciones especiales de entrega..."></textarea>
+              </div>
+            </div>
+
+            <!-- Submit -->
+            <button type="submit" class="btn btn--primary btn--full btn--submit" id="submitBtn" disabled>
+              Agregá productos para continuar
+            </button>
+
+            <div class="order__trust">
+              <span class="trust-badge">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+                Pago seguro
+              </span>
+              <span class="trust-badge">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                Envío asegurado
+              </span>
+              <span class="trust-badge">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+                SSL protegido
+              </span>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FINAL CTA ===== -->
+  <section class="final-cta">
+    <div class="container final-cta__inner">
+      <h2 class="final-cta__headline">TU CORAZÓN Y TU FAMILIA TE LO VAN A AGRADECER</h2>
+      <p class="final-cta__sub">₡14.900 — Envío a todo Costa Rica</p>
+      <a href="#pedido" class="btn btn--white">COMPRAR AHORA</a>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <span class="footer__logo">Cardio <span class="footer__logo-accent">Costa Rica</span></span>
+        <p class="footer__tagline">Tu salud cardiovascular, en buenas manos.</p>
+        <div class="footer__social">
+          <a href="#" class="footer__social-link" aria-label="Instagram" target="_blank" rel="noopener">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="#" class="footer__social-link" aria-label="WhatsApp" target="_blank" rel="noopener">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer__col">
+        <h4 class="footer__heading">NAVEGACIÓN</h4>
+        <a href="#hero" class="footer__link">Inicio</a>
+        <a href="#producto" class="footer__link">Producto</a>
+        <a href="#hipertension" class="footer__link">Hipertensión</a>
+        <a href="#faq" class="footer__link">Preguntas</a>
+      </div>
+      <div class="footer__col">
+        <h4 class="footer__heading">CONTACTO</h4>
+        <a href="#" class="footer__link" id="footerWhatsApp">WhatsApp</a>
+        <a href="mailto:info@cardiocostarica.cr" class="footer__link">info@cardiocostarica.cr</a>
+        <span class="footer__link footer__link--static">San José, Costa Rica</span>
+      </div>
+      <div class="footer__col">
+        <h4 class="footer__heading">LEGAL</h4>
+        <a href="#" class="footer__link">Política de Privacidad</a>
+        <a href="#" class="footer__link">Términos y Condiciones</a>
+        <a href="#" class="footer__link">Política de Devoluciones</a>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div class="container footer__bottom-inner">
+        <span>© 2025 Cardio Costa Rica — Hecho en Costa Rica para costarricenses</span>
+        <span class="footer__secure">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+          Pagos seguros con Tilopay
+        </span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== WHATSAPP FLOATING BUTTON ===== -->
+  <a href="#" class="whatsapp-float" id="whatsappFloat" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+  <!-- ===== LOADING OVERLAY ===== -->
+  <div class="loading-overlay" id="loadingOverlay" hidden>
+    <div class="loading-content">
+      <div class="spinner"></div>
+      <p class="loading-text">Redirigiendo al pago seguro...</p>
+    </div>
+  </div>
+
+  <script type="module" src="/src/js/main.js"></script>
+</body>
+</html>
