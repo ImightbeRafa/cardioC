@@ -20,10 +20,10 @@ function buildBetsyPayload(order) {
     product: {
       name: order.product.name,
       quantity: order.product.quantity,
-      unitPrice: order.product.unitPrice,
+      unitPrice: String(order.product.unitPrice),
     },
     shipping: {
-      cost: order.shipping.cost,
+      cost: String(order.shipping.cost),
       courier: 'Correos de Costa Rica',
       address: {
         province: order.shipping.address.province,
@@ -35,7 +35,7 @@ function buildBetsyPayload(order) {
     total: `₡${Number(order.total).toLocaleString('es-CR')}`,
     payment: {
       method: paymentMethod,
-      transactionId: order.transactionId || '',
+      transactionId: order.transactionId || order.orderId,
       status,
       date: new Date().toISOString(),
     },
