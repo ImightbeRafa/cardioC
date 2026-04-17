@@ -5,7 +5,7 @@
 
 const RESEND_API_KEY = process.env.RESEND_API_KEY;
 const ADMIN_EMAIL = process.env.ORDER_NOTIFICATION_EMAIL;
-const FROM_EMAIL = 'Cardio Costa Rica <orders@cardiocostarica.cr>';
+const FROM_EMAIL = 'Cardio Costa Rica <orders@cardiocr.shopping>';
 
 function formatCRC(amount) {
   return `₡${Number(amount).toLocaleString('es-CR')}`;
@@ -75,7 +75,7 @@ function buildCustomerEmailHTML(order) {
       </div>
 
       <p style="margin:0;font-size:14px;color:#999;">
-        ¿Preguntas? Escríbenos por WhatsApp o a info@cardiocostarica.cr
+        ¿Preguntas? Escríbenos por WhatsApp o a orders@cardiocr.shopping
       </p>
     </div>
 

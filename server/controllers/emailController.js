@@ -29,7 +29,7 @@ export async function sendSinpe(req, res) {
             Authorization: `Bearer ${RESEND_API_KEY}`,
           },
           body: JSON.stringify({
-            from: 'Cardio Costa Rica <orders@cardiocostarica.cr>',
+            from: 'Cardio Costa Rica <orders@cardiocr.shopping>',
             to: order.customer.email,
             subject: `Confirmación de pedido #${order.orderId}`,
             html: `<h2>Pedido Recibido — ${order.orderId}</h2>
@@ -57,7 +57,7 @@ export async function sendSinpe(req, res) {
               Authorization: `Bearer ${RESEND_API_KEY}`,
             },
             body: JSON.stringify({
-              from: 'Cardio Costa Rica <orders@cardiocostarica.cr>',
+              from: 'Cardio Costa Rica <orders@cardiocr.shopping>',
               to: ADMIN_EMAIL,
               subject: `Nuevo pedido #${order.orderId} - SINPE`,
               html: `<h2>Nuevo Pedido SINPE — ${order.orderId}</h2>

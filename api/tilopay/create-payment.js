@@ -7,7 +7,7 @@
 import { buildUserData, generateEventId, sendMetaEvent } from '../utils/meta.js';
 
 const { TILOPAY_BASE_URL, TILOPAY_API_KEY, TILOPAY_USER, TILOPAY_PASSWORD } = process.env;
-const SITE_URL = process.env.SITE_URL || 'https://cardiocostarica.cr';
+const SITE_URL = process.env.SITE_URL || 'https://www.cardiocr.shopping';
 
 export default async function handler(req, res) {
   if (req.method === 'OPTIONS') {

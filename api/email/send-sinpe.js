@@ -8,7 +8,7 @@ import { sendOrderEmails } from '../utils/email.js';
 import { sendOrderToBetsyWithRetry } from '../utils/betsy.js';
 import { buildUserData, generateEventId, sendMetaEvent } from '../utils/meta.js';
 
-const SITE_URL = process.env.SITE_URL || 'https://cardiocostarica.cr';
+const SITE_URL = process.env.SITE_URL || 'https://www.cardiocr.shopping';
 
 export default async function handler(req, res) {
   if (req.method === 'OPTIONS') {

@@ -21,7 +21,7 @@ async function sendEmail(to, subject, html) {
       Authorization: `Bearer ${RESEND_API_KEY}`,
     },
     body: JSON.stringify({
-      from: 'Cardio Costa Rica <orders@cardiocostarica.cr>',
+      from: 'Cardio Costa Rica <orders@cardiocr.shopping>',
       to, subject, html,
     }),
   });

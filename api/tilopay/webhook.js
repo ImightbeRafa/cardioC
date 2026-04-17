@@ -9,7 +9,7 @@ import { sendOrderToBetsyWithRetry } from '../utils/betsy.js';
 import { buildUserData, generateEventId, sendMetaEvent } from '../utils/meta.js';
 
 const WEBHOOK_SECRET = process.env.TILOPAY_WEBHOOK_SECRET;
-const SITE_URL = process.env.SITE_URL || 'https://cardiocostarica.cr';
+const SITE_URL = process.env.SITE_URL || 'https://www.cardiocr.shopping';
 
 async function verifyHMAC(body, signature) {
   if (!WEBHOOK_SECRET || !signature) return false;
