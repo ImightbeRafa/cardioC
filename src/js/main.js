@@ -143,7 +143,6 @@ function updateSubmitButton() {
   if (!btn) return;
 
   const total = state.quantity * CONFIG.unitPrice + (state.quantity > 0 ? CONFIG.shippingCost : 0);
-  const paymentMethod = $('#metodoPago')?.value;
 
   if (state.quantity <= 0) {
     btn.disabled = true;
@@ -152,31 +151,7 @@ function updateSubmitButton() {
   }
 
   btn.disabled = false;
-
-  if (paymentMethod === 'tilopay') {
-    btn.textContent = `Pagar con Tarjeta — ${formatCRC(total)}`;
-  } else if (paymentMethod === 'sinpe') {
-    btn.textContent = `Ordenar con SINPE — ${formatCRC(total)}`;
-  } else {
-    btn.textContent = `Realizar Pedido — ${formatCRC(total)}`;
-  }
-}
-
-// ============================================
-// PAYMENT METHOD
-// ============================================
-function initPaymentMethod() {
-  const select = $('#metodoPago');
-  const sinpeHint = $('#sinpeHint');
-
-  if (!select) return;
-
-  select.addEventListener('change', () => {
-    if (sinpeHint) {
-      sinpeHint.hidden = select.value !== 'sinpe';
-    }
-    updateSubmitButton();
-  });
+  btn.textContent = `Pagar con Tarjeta — ${formatCRC(total)}`;
 }
 
 // ============================================
@@ -201,7 +176,6 @@ function validateForm() {
     { id: 'email', label: 'correo', pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/ },
     { id: 'provincia', label: 'provincia' },
     { id: 'direccion', label: 'dirección', minLength: 10 },
-    { id: 'metodoPago', label: 'método de pago' },
   ];
 
   for (const field of fields) {
@@ -259,7 +233,6 @@ function getFormData() {
     canton: $('#canton').value.trim(),
     distrito: $('#distrito').value.trim(),
     direccion: $('#direccion').value.trim(),
-    metodoPago: $('#metodoPago').value,
     comentarios: $('#comentarios').value.trim(),
   };
 }
@@ -306,15 +279,11 @@ function initOrderForm() {
       },
       subtotal,
       total,
-      paymentMethod: formData.metodoPago,
+      paymentMethod: 'tilopay',
       comments: formData.comentarios,
     };
 
-    if (formData.metodoPago === 'tilopay') {
-      await handleTilopay(orderData);
-    } else if (formData.metodoPago === 'sinpe') {
-      await handleSinpe(orderData);
-    }
+    await handleTilopay(orderData);
   });
 }
 
@@ -362,66 +331,6 @@ async function handleTilopay(orderData) {
     btn.classList.remove('loading');
     updateSubmitButton();
     alert('Error al procesar el pago. Por favor intenta de nuevo.');
-  }
-}
-
-async function handleSinpe(orderData) {
-  const btn = $('#submitBtn');
-
-  btn.disabled = true;
-  btn.innerHTML = '<span class="spinner"></span> Procesando orden...';
-  btn.classList.add('loading');
-
-  // Track Lead
-  const eventId = `lead_${orderData.orderId}`;
-  metaTrack('Lead', {
-    content_name: CONFIG.productName,
-    value: orderData.total,
-    currency: CONFIG.currency,
-  }, { eventID: eventId });
-
-  try {
-    const res = await fetch(`${CONFIG.apiBase}/api/email/send-sinpe`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ ...orderData, eventId }),
-    });
-
-    const data = await res.json();
-
-    if (data.success) {
-      // Show success inline
-      const orderSection = $('#pedido');
-      if (orderSection) {
-        orderSection.innerHTML = `
-          <div class="container" style="text-align:center; padding: 96px 24px;">
-            <div style="border: 1px solid var(--border); border-radius: 12px; box-shadow: var(--shadow-lg); padding: 48px; max-width: 600px; margin: 0 auto; background: var(--bg-card);">
-              <h2 class="section-headline" style="margin-bottom: 16px;">¡PEDIDO RECIBIDO!</h2>
-              <p style="font-size: 1.125rem; color: var(--text-muted); margin-bottom: 24px;">
-                Orden <strong>${orderData.orderId}</strong>
-              </p>
-              <div style="border: 1px solid var(--border); border-radius: 8px; padding: 24px; margin-bottom: 24px; background: var(--bg-alt); text-align: left;">
-                <p style="font-weight: 700; margin-bottom: 8px;">DATOS PARA SINPE MÓVIL:</p>
-                <p style="font-family: 'DM Sans', sans-serif; font-size: 1.1rem;">Número: <strong>8888-8888</strong></p>
-                <p style="font-family: 'DM Sans', sans-serif; font-size: 1.1rem;">Monto: <strong>${formatCRC(orderData.total)}</strong></p>
-                <p style="margin-top: 8px; font-size: 0.9rem; color: var(--text-muted);">Nombre: Cardio Costa Rica</p>
-              </div>
-              <p style="font-size: 0.95rem; color: var(--text-muted);">
-                Te enviamos un correo a <strong>${orderData.customer.email}</strong> con los detalles y las instrucciones de pago.
-              </p>
-            </div>
-          </div>
-        `;
-      }
-    } else {
-      throw new Error(data.error || 'Error al procesar la orden');
-    }
-  } catch (err) {
-    console.error('SINPE error:', err);
-    btn.disabled = false;
-    btn.classList.remove('loading');
-    updateSubmitButton();
-    alert('Error al procesar la orden. Por favor intenta de nuevo.');
   }
 }
 
@@ -517,7 +426,6 @@ function initSmoothScroll() {
 document.addEventListener('DOMContentLoaded', () => {
   initNav();
   initCart();
-  initPaymentMethod();
   initOrderForm();
   initReveal();
   initViewContentTracking();

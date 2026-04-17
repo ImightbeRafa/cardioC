@@ -7,8 +7,8 @@ const BETSY_API_KEY = process.env.BETSY_API_KEY;
 const BETSY_API_URL = process.env.BETSY_API_URL || 'https://www.betsycrm.com/api/integration/orders/create';
 
 function buildBetsyPayload(order) {
-  const paymentMethod = order.paymentMethod === 'tilopay' ? 'Tilopay' : 'SINPE';
-  const status = order.paymentMethod === 'tilopay' ? 'PAGADO' : 'PENDIENTE';
+  const paymentMethod = 'Tilopay';
+  const status = 'PAGADO';
 
   return {
     orderId: order.orderId,

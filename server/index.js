@@ -8,7 +8,6 @@ import 'dotenv/config';
 import express from 'express';
 import cors from 'cors';
 import tilopayRoutes from './routes/tilopay.js';
-import emailRoutes from './routes/email.js';
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -18,7 +17,6 @@ app.use(express.json());
 
 // Routes
 app.use('/api/tilopay', tilopayRoutes);
-app.use('/api/email', emailRoutes);
 
 // Health check
 app.get('/api/health', (req, res) => {
@@ -31,5 +29,4 @@ app.listen(PORT, () => {
   console.log(`  POST /api/tilopay/create-payment`);
   console.log(`  POST /api/tilopay/confirm`);
   console.log(`  POST /api/tilopay/webhook`);
-  console.log(`  POST /api/email/send-sinpe`);
 });

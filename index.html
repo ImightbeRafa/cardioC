@@ -339,7 +339,7 @@
         </details>
         <details class="faq__item">
           <summary class="faq__question">¿Qué métodos de pago aceptan?</summary>
-          <div class="faq__answer"><p>Aceptamos tarjetas de crédito y débito (Visa, Mastercard, American Express) a través de Tilopay, y también SINPE Móvil para transferencia directa.</p></div>
+          <div class="faq__answer"><p>Aceptamos tarjetas de crédito y débito (Visa, Mastercard, American Express) a través de Tilopay, nuestra pasarela de pago segura.</p></div>
         </details>
         <details class="faq__item">
           <summary class="faq__question">¿Sustituye una consulta médica?</summary>
@@ -457,14 +457,8 @@
             <div class="form-section">
               <span class="form-section-label">PAGO</span>
               <div class="form-group">
-                <label for="metodoPago">Método de pago</label>
-                <select id="metodoPago" name="metodoPago" required aria-required="true">
-                  <option value="">Seleccioná</option>
-                  <option value="tilopay">Tarjeta (Tilopay)</option>
-                  <option value="sinpe">SINPE Móvil</option>
-                </select>
-                <span class="error-message" aria-live="polite"></span>
-                <p class="sinpe-hint" id="sinpeHint" hidden>Te enviaremos los datos de SINPE por correo para completar la transferencia.</p>
+                <p class="payment-method-info">Pago seguro con tarjeta de crédito o débito (Visa, Mastercard, American Express) procesado por <strong>Tilopay</strong>.</p>
+                <input type="hidden" id="metodoPago" name="metodoPago" value="tilopay" />
               </div>
               <div class="form-group">
                 <label for="comentarios">Comentarios <span class="label-optional">(opcional)</span></label>

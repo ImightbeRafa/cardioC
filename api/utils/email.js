@@ -12,8 +12,6 @@ function formatCRC(amount) {
 }
 
 function buildCustomerEmailHTML(order) {
-  const isSinpe = order.paymentMethod === 'sinpe';
-
   return `
 <!DOCTYPE html>
 <html lang="es">
@@ -50,20 +48,9 @@ function buildCustomerEmailHTML(order) {
         <tr style="border-top:3px solid #1A1A1A;"><td style="padding:12px 0;font-weight:700;font-size:18px;">Total</td><td style="padding:12px 0;text-align:right;font-family:monospace;font-weight:700;font-size:20px;color:#D32F2F;">${formatCRC(order.total)}</td></tr>
       </table>
 
-      ${isSinpe ? `
-      <!-- SINPE Instructions -->
-      <div style="border:3px solid #0077B6;padding:20px;margin-bottom:24px;background:#E8F4FA;">
-        <p style="margin:0 0 8px;font-weight:700;color:#0077B6;">DATOS PARA SINPE MÓVIL:</p>
-        <p style="margin:0;font-family:monospace;font-size:16px;">Número: <strong>8888-8888</strong></p>
-        <p style="margin:4px 0 0;font-family:monospace;font-size:16px;">Monto: <strong>${formatCRC(order.total)}</strong></p>
-        <p style="margin:8px 0 0;font-size:14px;color:#666;">Nombre: Cardio Costa Rica</p>
-        <p style="margin:12px 0 0;font-size:13px;color:#666;">Por favor realiza la transferencia y envíanos el comprobante por WhatsApp.</p>
-      </div>
-      ` : `
       <div style="border:3px solid #2E7D32;padding:16px;margin-bottom:24px;background:#E8F5E9;">
         <p style="margin:0;font-weight:700;color:#2E7D32;">✓ Pago procesado exitosamente con tarjeta.</p>
       </div>
-      `}
 
       <!-- Shipping Info -->
       <div style="margin-bottom:24px;">
@@ -91,8 +78,8 @@ function buildCustomerEmailHTML(order) {
 }
 
 function buildAdminEmailHTML(order) {
-  const paymentLabel = order.paymentMethod === 'tilopay' ? 'Tarjeta (Tilopay)' : 'SINPE Móvil';
-  const status = order.paymentMethod === 'tilopay' ? 'PAGADO' : 'PENDIENTE';
+  const paymentLabel = 'Tarjeta (Tilopay)';
+  const status = 'PAGADO';
 
   return `
 <!DOCTYPE html>
@@ -127,7 +114,6 @@ async function sendOrderEmails(order) {
     return { customer: null, admin: null };
   }
 
-  const paymentLabel = order.paymentMethod === 'tilopay' ? 'Tarjeta' : 'SINPE';
   const results = {};
 
   // Customer email
@@ -164,7 +150,7 @@ async function sendOrderEmails(order) {
         body: JSON.stringify({
           from: FROM_EMAIL,
           to: ADMIN_EMAIL,
-          subject: `Nuevo pedido #${order.orderId} - ${paymentLabel}`,
+          subject: `Nuevo pedido #${order.orderId} - Tarjeta`,
           html: buildAdminEmailHTML(order),
         }),
       });
